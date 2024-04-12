@@ -2,10 +2,10 @@
 
 ### Members
 
-- Daniel (dss210005)
-- Muaaz (mma210009)
-- Ayusha (axt210078)
-- Erick (eew200000)
+- Daniel Suh
+- Muaaz Abed
+- Ayusha Timalsena
+- Erick Wong
 
 ### Components
 
