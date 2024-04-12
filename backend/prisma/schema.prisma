@@ -11,19 +11,30 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique  
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
   password String
-  name  String?  
-  
-  ideas ProjectIdea[]
+  name     String?
+
+  ideas    ProjectIdea[]
+  userInfo UserInfo?
+}
+
+model UserInfo {
+  id                    Int    @id @default(autoincrement())
+  userId                Int    @unique
+  skills                String
+  programming_languages String
+  interests             String
+
+  user User @relation(fields: [userId], references: [id])
 }
 
 model ProjectIdea {
-  id    Int     @id @default(autoincrement())
-  title String
-  description String  
-  userId Int    
+  id          Int    @id @default(autoincrement())
+  title       String
+  description String
+  userId      Int
 
   user User @relation(fields: [userId], references: [id])
 }

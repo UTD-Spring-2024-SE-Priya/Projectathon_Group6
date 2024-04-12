@@ -5,6 +5,8 @@ Make sure you have the following installed:
 - Node.js
 - pnpm
 
+Install dependencies
+
 ```
 pnpm install
 ```
@@ -15,13 +17,14 @@ Install Dotenv
 pnpm install dotenv --save
 ```
 
-Seed DB
+Create + Seed DB
 
 ```
+cd prisma && touch dev.db
 npx prisma db seed
 ```
 
-Generate Prisma Client
+Generate Prisma Client (for interacting with the database)
 
 ```
 npx prisma generate

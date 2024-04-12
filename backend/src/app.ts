@@ -1,9 +1,10 @@
 import express, { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
 import { hashPassword } from './utils';
+import { Controller } from './controller';
 
-const prisma = new PrismaClient();
 const app = express();
+const controller = new Controller();
 
 app.use(express.json()); // Middleware to parse JSON bodies
 
@@ -14,27 +15,32 @@ app.get('/', (req, res) => {
 // POST endpoint for user sign-up
 app.post('/signup', async (req: Request, res: Response) => {
     try {
-        const { email, name, password } = req.body;
-
-        // Here you should add hashing for the password for security reasons
-        const user = await prisma.user.create({
-            data: {
-                email,
-                name,
-                password: await hashPassword(password),
-            },
-        });
-
-        res.status(201).json({
-            id: user.id,
-            email: user.email,
-            name: user.name,
-        });
+        await controller.signup(req, res);
     } catch (error) {
         console.error(error);
-        res.status(400).send('Error in user sign-up');
+        res.status(400).send('Error in user sign-up controller');
     }
 });
+
+// POST endpoint for user login
+app.post('/login', async (req: Request, res: Response) => {
+    try {
+        await controller.login(req, res);
+    } catch (error) {
+        console.error(error);
+        res.status(400).send('Error in user login controller');
+    }
+})
+
+// POST endpoint for updating user info (skills, programming languages, interests)
+app.post('/update-user-info', async (req: Request, res: Response) => {
+    try {
+        await controller.updateUserInfo(req, res);
+    } catch (error) {
+        console.error(error);
+        res.status(400).send('Error in updating user info controller');
+    }
+})
 
 // Handle not found 404
 app.use((req, res, next) => {
