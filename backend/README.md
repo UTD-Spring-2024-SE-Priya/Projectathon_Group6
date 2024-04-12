@@ -9,6 +9,12 @@ Make sure you have the following installed:
 pnpm install
 ```
 
+Install Dotenv
+
+```
+pnpm install dotenv --save
+```
+
 Seed DB
 
 ```
