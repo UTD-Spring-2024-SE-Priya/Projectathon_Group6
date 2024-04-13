@@ -1,0 +1,231 @@
+/* SignUpPage.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 100% of the viewport height */
+    width: 100vw; /* 100% of the viewport width */
+    background-size: cover; /* Cover the entire area of the container */
+    background-position: center; /* Center the image within the container */
+    background-repeat: no-repeat; /* Do not repeat the image */
+  }
+  
+  .login-form {
+    background: #FCFCFC;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 6px 10px 10px rgba(20, 20, 20, 0.1);
+    width: 550px; /* adjust as necessary */
+    height: 625px;
+  }
+  
+  .login-form h2 {
+    font-family: 'Inter', sans-serif;
+    color: #414141;
+    margin-top: 42px;
+    margin-bottom: 34px;
+    text-align: center;
+    font-size: 130%;
+  }
+  
+  #highlightB {
+    color: #1A17CB; /* Change to your desired color */
+  }
+  
+  .input-group-login {
+    margin-bottom: 19px;
+    display: flex;
+    justify-content: center; /* This will center its children (the input) */
+  }
+  
+  .input-group-login input {
+    font-family: 'Inter', sans-serif;
+    width: calc(100% - 20px); /* This calculates the width as 100% of its parent minus 20px */
+    padding: 15px;
+    margin-bottom: 7px;
+    margin: 0 10px; /* This adds margin to the left and right, reducing the effective width */
+    border: 1px solid hsl(258, 42%, 97%);
+    border-radius: 3px;
+    box-shadow: 4px 4px 8px #d3d9f4;
+    transition: border-color 0.3s;  /* Smooth transition for the border color change */
+  }
+  .input-group-login input:focus {
+    font-family: 'Inter', sans-serif;
+    border-color: #1A17CB;  /* Change to the desired shade of purple on focus */
+    outline: none;  /* Removes the default focus outline which may not look appealing */
+   }
+   .input-group-login:last-of-type {
+    margin-bottom: 30px; /* Increase the value to add more space */
+  }
+
+ 
+  .remember-me {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensures the container fills the width of its parent */
+    color: gray;
+    margin-bottom: 20px;
+    font-size: small;
+  }
+  
+  .remember-me input[type='checkbox'] {
+    margin-right: 4px; /* Provides space between the checkbox and the label */
+    color: gray;
+  }
+  
+  .remember-me label {
+    margin-right: auto; /* Pushes everything else to the right */
+    color: gray;
+  }
+  
+  .forgot-password {
+    text-decoration: none;
+    color: #6e57e0; /* Use a color that matches your design */
+    font-size: 0.9rem; /* Adjust size as needed */
+    margin-left: 24px; /* Provide some space between the checkbox and the link */
+  }
+  
+  /* Hide the default checkbox */
+  .remember-me input[type='checkbox'] {
+    display: none;
+  }
+
+  /* Create a custom box that will be the new "visual" checkbox */
+  .remember-me input[type='checkbox'] + label::before {
+    content: "";
+    display: inline-block;
+    width: 12px; /* Size of the custom checkbox */
+    height: 12px;
+    margin-left: 12px;
+    margin-right: 4px;
+    border: 2px solid #ccc; /* Border color of the checkbox */
+    border-radius: 4px; /* Optional: if you want rounded corners */
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  /* Style for when the checkbox is checked */
+  .remember-me input[type='checkbox']:checked + label::before {
+    background-color: #ccc; /* Background color of the checked state */
+    /* Here you can also insert a checkmark icon using a Unicode character or an SVG background-image */
+  }
+
+  
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+
+  .submit-btn-login {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    justify-content: center;
+    width: 35%;
+    padding: 12px;
+    background-color: #1A17CB; /* Use color picker to match the button color */
+    border: none;
+    border-radius: 6px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block; /* Makes the button a block-level element */
+    margin: 0 auto; /* Automatically calculates left and right margins to center the button */
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .submit-btn-login:hover{
+    background-color: #1a1896; /* Use color picker to match the button color */
+  }
+  
+  .divider {
+    display: flex;
+    align-items: center; /* Center the items vertically */
+    justify-content: center; /* Center the items horizontally */
+    text-align: center;
+    margin: 20px 0;
+    font-family: 'Inter', sans-serif;
+    color: #868686;
+    font-weight: bold;
+    position: relative; /* Needed for positioning pseudo-elements */
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: ""; /* Required for pseudo-elements to display */
+    background-color: #dbd8d8; /* Line color */
+    height: 1px; /* Line thickness */
+    flex-grow: 1; /* Allow lines to take up available space */
+    margin: 0 10px; /* Spacing between the text and the lines */
+  }
+  
+  .with {
+    display: flex;
+    align-items: center; /* Center the items vertically */
+    justify-content: center; /* Center the items horizontally */
+    text-align: center;
+    margin: 20px 0;
+    font-family: 'Inter', sans-serif;
+    color: #868686;
+    position: relative; /* Needed for positioning pseudo-elements */
+  }
+  .social-login {
+    text-align: center;
+    width: 95%;
+    display: flex; /* Changed from block to flex to allow inline positioning */
+    justify-content: center; /* Aligns children (buttons) center horizontally */
+    margin: 0 auto; /* Keeps the container centered */
+    flex-wrap: wrap; /* Ensures flexibility on smaller screens */
+  }
+  
+  
+  .social-btn {
+    font-family: 'Inter', sans-serif;
+    display: inline-block; /* Allows buttons to sit side by side */
+    width: auto; /* Changed from 100% to auto for natural width with padding */
+    padding: 10px 20px; /* Adjust padding as needed */
+    margin: 5px; /* Adds spacing around each button */
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    flex-grow: 1; /* Allows the buttons to expand and take equal space */
+  }
+  
+  
+  .social-btn.facebook {
+    background-color: #3165d4;
+  }
+  .social-btn.facebook:hover{
+    background-color: #0f4bcb;
+  }
+  .social-btn.google {
+    background-color: #db3758;
+  }
+  .social-btn.google:hover {
+    background-color: #c11537;
+  }
+  .social-btn.apple {
+    background-color: #393939;
+  }
+  .social-btn.apple:hover {
+    background-color: #181818;
+  }
+  
+  .signup-link {
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .signup-link a {
+    font-family: 'Inter', sans-serif;
+    color: #6e57e0; /* match the theme color */
+    text-decoration: none;
+  }
+  
+  .signup-link a:hover {
+    font-weight: bold; /* Make text bold on hover */
+  }

@@ -1,0 +1,169 @@
+/* SignUpPage.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 100% of the viewport height */
+    width: 100vw; /* 100% of the viewport width */
+    background-size: cover; /* Cover the entire area of the container */
+    background-position: center; /* Center the image within the container */
+    background-repeat: no-repeat; /* Do not repeat the image */
+  }
+  
+  .signup-form {
+    background: #FCFCFC;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 6px 10px 10px rgba(20, 20, 20, 0.1);
+    width: 550px; /* adjust as necessary */
+    height: 625px;
+  }
+  
+  .signup-form h2 {
+    font-family: 'Inter', sans-serif;
+    color: #414141;
+    margin-top: 22px;
+    margin-bottom: 34px;
+    text-align: center;
+    font-size: 130%;
+  }
+  
+  #highlightP {
+    color: #5F04BA; /* Change to your desired color */
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center; /* This will center its children (the input) */
+  }
+  
+  .input-group input {
+    font-family: 'Inter', sans-serif;
+    width: calc(100% - 20px); /* This calculates the width as 100% of its parent minus 20px */
+    padding: 15px;
+    margin-bottom: 7px;
+    margin: 0 10px; /* This adds margin to the left and right, reducing the effective width */
+    border: 1px solid hsl(258, 42%, 97%);
+    border-radius: 3px;
+    box-shadow: 4px 4px 8px #cdc4e3;
+    transition: border-color 0.3s;  /* Smooth transition for the border color change */
+  }
+  .input-group input:focus {
+    font-family: 'Inter', sans-serif;
+    border-color: #7e5ddb;  /* Change to the desired shade of purple on focus */
+    outline: none;  /* Removes the default focus outline which may not look appealing */
+   }
+   .input-group:last-of-type {
+    margin-bottom: 30px; /* Increase the value to add more space */
+  }
+
+  .submit-btn {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    justify-content: center;
+    width: 35%;
+    padding: 12px;
+    background-color: #754EE3; /* Use color picker to match the button color */
+    border: none;
+    border-radius: 6px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block; /* Makes the button a block-level element */
+    margin: 0 auto; /* Automatically calculates left and right margins to center the button */
+  }
+  .submit-btn:hover{
+    background-color: rgb(92, 48, 214); /* Use color picker to match the button color */
+  }
+  
+  .divider {
+    display: flex;
+    align-items: center; /* Center the items vertically */
+    justify-content: center; /* Center the items horizontally */
+    text-align: center;
+    margin: 20px 0;
+    font-family: 'Inter', sans-serif;
+    color: #868686;
+    font-weight: bold;
+    position: relative; /* Needed for positioning pseudo-elements */
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: ""; /* Required for pseudo-elements to display */
+    background-color: #dbd8d8; /* Line color */
+    height: 1px; /* Line thickness */
+    flex-grow: 1; /* Allow lines to take up available space */
+    margin: 0 10px; /* Spacing between the text and the lines */
+  }
+  
+  .with {
+    display: flex;
+    align-items: center; /* Center the items vertically */
+    justify-content: center; /* Center the items horizontally */
+    text-align: center;
+    margin: 20px 0;
+    font-family: 'Inter', sans-serif;
+    color: #868686;
+    position: relative; /* Needed for positioning pseudo-elements */
+  }
+  .social-login {
+    text-align: center;
+    width: 95%;
+    display: flex; /* Changed from block to flex to allow inline positioning */
+    justify-content: center; /* Aligns children (buttons) center horizontally */
+    margin: 0 auto; /* Keeps the container centered */
+    flex-wrap: wrap; /* Ensures flexibility on smaller screens */
+  }
+  
+  
+  .social-btn {
+    font-family: 'Inter', sans-serif;
+    display: inline-block; /* Allows buttons to sit side by side */
+    width: auto; /* Changed from 100% to auto for natural width with padding */
+    padding: 10px 20px; /* Adjust padding as needed */
+    margin: 5px; /* Adds spacing around each button */
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    flex-grow: 1; /* Allows the buttons to expand and take equal space */
+  }
+  
+  
+  .social-btn.facebook {
+    background-color: #3165d4;
+  }
+  .social-btn.facebook:hover{
+    background-color: #0f4bcb;
+  }
+  .social-btn.google {
+    background-color: #db3758;
+  }
+  .social-btn.google:hover {
+    background-color: #c11537;
+  }
+  .social-btn.apple {
+    background-color: #393939;
+  }
+  .social-btn.apple:hover {
+    background-color: #181818;
+  }
+  
+  .login-link {
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .login-link a {
+    font-family: 'Inter', sans-serif;
+    color: #6e57e0; /* match the theme color */
+    text-decoration: none;
+  }
+  
+  .login-link a:hover {
+    font-weight: bold; /* Make text bold on hover */
+  }
