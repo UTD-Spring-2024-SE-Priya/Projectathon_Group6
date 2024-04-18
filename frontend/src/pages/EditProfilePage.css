@@ -1,0 +1,126 @@
+/* EditProfilePage.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .edit-profile-container {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+  
+  .top-bar {
+    background-color: #99A7EF;
+    height: 50px;
+    width: 100%;
+  }
+  
+  .title {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.3rem; /* Adjust size as needed */
+    font-family: 'Inter', sans-serif;
+    color: #474549;
+    font-weight: bold;
+  }
+  
+  .form-group {
+    margin-bottom: 25px;
+    font-family: 'Inter', sans-serif;
+    color: #818181;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    background: #fffefe;
+    border: 1px solid #EEEEF0;
+    border-radius: 4px;
+    box-shadow: inset 1px 1px 2px rgba(136, 136, 136, 0.15);
+
+    margin-top: 7px;
+  }
+  
+  .form-group input[type="submit"] {
+    width: 15%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #4E54E3;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 0.9rem;
+  }
+  
+    .form-group input[type="submit"]:hover {
+        background-color: #363bc3;
+    }
+
+  .form-group .skill-level {
+    margin-top: 16px;
+  }
+  
+  .form-group .skill-level button {
+    padding: 12px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    border: 1px solid #EEEEF0;
+    background: none;
+    box-shadow: inset 1px 1px 2px rgba(136, 136, 136, 0.15);
+    font-size: 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    color:#909090;
+  }
+  
+  .form-group .skill-level button.active {
+    background-color: #E4F0FF;
+    color: #909090;
+    border-color: #acc5f5;
+  }
+  
+  .language-buttons,
+  .interest-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  
+  .language-buttons button,
+  .interest-buttons button {
+    padding: 12px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    border: 1px solid #EEEEF0;
+    background: none;
+    box-shadow: inset 1px 1px 2px rgba(136, 136, 136, 0.15);
+    font-size: 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    color:#909090;
+  }
+  
+  .language-buttons button.active,
+  .interest-buttons button.active {
+    background-color: #E4F0FF;
+    color: #909090;
+    border-color: #acc5f5;
+  }
+  
