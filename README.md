@@ -11,4 +11,4 @@
 
 `/backend` contains backend API server + ORM in Node.js
 
-`/frontend` contains frontend code written with Svelte
+`/frontend` contains frontend code written with React
