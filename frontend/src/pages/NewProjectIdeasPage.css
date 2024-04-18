@@ -1,0 +1,112 @@
+/* NewProjectIdeasPage.css */
+
+.new-project-ideas-page {
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .top-bar {
+    background-color: #99A7EF; /* Adjusted color based on your code */
+    color: white;
+    padding: 25px;
+    font-size: 1.8em;
+    font-weight: bold;
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Stacks items vertically */
+    justify-content: flex-end; /* Aligns items to the end of the container */
+  }
+  .bar-title {
+    /* Left-aligned by default since it's the first item in a flex container */
+    margin-top: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .nav-links {
+    margin-left: auto; /* This will push the nav-links to the right */
+    font-size: 0.8em;
+    display: flex;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0 10px; /* Adjust padding as needed */
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+
+  .new-project-ideas-page h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Create a responsive grid layout */
+    gap: 20px; /* Adjust the gap as per the design */
+    padding: 20px;
+  }
+  
+  .project-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Card shadow */
+    padding: 15px;
+    text-align: left;
+  }
+  
+  .project-card h2 {
+    color: #3949ab; /* Title color as per the image */
+    font-size: 1.2em;
+  }
+  
+  .project-card p {
+    font-size: 0.9em;
+    color: #666;
+    margin: 10px 0;
+  }
+  
+  .project-card ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .project-card li {
+    background-color: #eceff1; /* Background color for technology tags */
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 0.8em;
+  }
+  
+  .generate-ideas-btn {
+    background-color: #3949ab; /* Button color as per the image */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .generate-ideas-btn:hover {
+    background-color: #303f9f; /* A darker blue on hover */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .project-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+  

@@ -4,6 +4,8 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
 import EditProfilePage from './pages/EditProfilePage'
+import ProfilePage from './pages/ProfilePage'
+import NewProjectIdeasPage from './pages/NewProjectIdeasPage'
 // Import other pages if you have them
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
           <Route path="/" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/editProfile" element={<EditProfilePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/projectIdeas" element={<NewProjectIdeasPage />} />
           {/* Other routes */}
         </Routes>
       </CSSTransition>
