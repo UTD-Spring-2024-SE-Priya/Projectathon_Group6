@@ -17,6 +17,36 @@ const NewProjectIdeasPage = () => {
       technologies: ['HTML', 'CSS', 'JavaScript', 'Python']
       // ... other details
     },
+    {
+      title: 'Fashion Marketplace',
+      description: 'Build an online marketplace where independent fashion designers can showcase and sell their creations. Use HTML and CSS to design a visually appealing storefront for each designer. Implement backend functionality using Python for product listings, transactions, and user management. Use Java for features like customer reviews, wishlist management, and notifications.',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Python']
+      // ... other details
+    },
+    {
+      title: 'Fashion Marketplace',
+      description: 'Build an online marketplace where independent fashion designers can showcase and sell their creations. Use HTML and CSS to design a visually appealing storefront for each designer. Implement backend functionality using Python for product listings, transactions, and user management. Use Java for features like customer reviews, wishlist management, and notifications.',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Python']
+      // ... other details
+    },
+    {
+      title: 'Fashion Marketplace',
+      description: 'Build an online marketplace where independent fashion designers can showcase and sell their creations. Use HTML and CSS to design a visually appealing storefront for each designer. Implement backend functionality using Python for product listings, transactions, and user management. Use Java for features like customer reviews, wishlist management, and notifications.',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Python']
+      // ... other details
+    },
+    {
+      title: 'Fashion Marketplace',
+      description: 'Build an online marketplace where independent fashion designers can showcase and sell their creations. Use HTML and CSS to design a visually appealing storefront for each designer. Implement backend functionality using Python for product listings, transactions, and user management. Use Java for features like customer reviews, wishlist management, and notifications.',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Python']
+      // ... other details
+    },
+    {
+      title: 'Fashion Marketplace',
+      description: 'Build an online marketplace where independent fashion designers can showcase and sell their creations. Use HTML and CSS to design a visually appealing storefront for each designer. Implement backend functionality using Python for product listings, transactions, and user management. Use Java for features like customer reviews, wishlist management, and notifications.',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Python']
+      // ... other details
+    },
     // ... more project ideas
   ];
 

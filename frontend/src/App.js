@@ -7,6 +7,7 @@ import EditProfilePage from './pages/EditProfilePage'
 import ProfilePage from './pages/ProfilePage'
 import NewProjectIdeasPage from './pages/NewProjectIdeasPage'
 import FeedbackPage from './pages/FeedbackPage'
+import CollectionsPage from './pages/CollectionsPage'
 // Import other pages if you have them
 
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/projectIdeas" element={<NewProjectIdeasPage />} />
           <Route path="/feedback/:projectId" element={<FeedbackPage />} />
+          <Route path="/collections" element={<CollectionsPage />} />
           {/* Other routes */}
         </Routes>
       </CSSTransition>

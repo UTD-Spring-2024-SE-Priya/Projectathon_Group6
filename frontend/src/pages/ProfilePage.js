@@ -27,7 +27,7 @@ const ProfilePage = () => {
   };
 
     const handleViewCollection = () => {
-      navigate('/collection'); // Navigate to the route for collection
+      navigate('/collections'); // Navigate to the route for collection
   };
 
   // Handler to navigate to the new project ideas
