@@ -9,7 +9,6 @@
     background-color: #99A7EF; /* Adjusted color based on your code */
     color: white;
     padding: 25px;
-    font-size: 1.8em;
     font-weight: bold;
     display: flex; /* Enables flexbox */
     flex-direction: column; /* Stacks items vertically */
@@ -18,14 +17,15 @@
   .bar-title {
     /* Left-aligned by default since it's the first item in a flex container */
     margin-top: 20px;
-    font-size: 0.9em;
+    margin-left: 20px;
+    font-size: 0.7em;
     font-weight: bold;
     font-family: 'Inter', sans-serif;
   }
   
   .nav-links {
     margin-left: auto; /* This will push the nav-links to the right */
-    font-size: 0.8em;
+    font-size: 0.6em;
     display: flex;
     font-family: 'Inter', sans-serif;
   }
@@ -37,31 +37,31 @@
   }
   
   .nav-links a:hover {
-    text-decoration: underline;
+    color: #161c42;
   }
 
-  .new-project-ideas-page h1 {
-    text-align: center;
-    color: #333;
-  }
   
   .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Create a responsive grid layout */
     gap: 20px; /* Adjust the gap as per the design */
+    margin-left: 20px;
     padding: 20px;
+    margin-top: -20px;
   }
   
   .project-card {
-    background-color: #fff;
+    background-color: #F8F8F8;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Card shadow */
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1); /* Card shadow */
     padding: 15px;
     text-align: left;
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack children elements vertically */
   }
   
   .project-card h2 {
-    color: #3949ab; /* Title color as per the image */
+    color: #414141; /* Title color as per the image */
     font-size: 1.2em;
   }
   
@@ -77,7 +77,7 @@
   }
   
   .project-card li {
-    background-color: #eceff1; /* Background color for technology tags */
+    background-color: #e7e7e7; /* Background color for technology tags */
     display: inline-block;
     padding: 5px 10px;
     margin: 5px;
@@ -86,22 +86,72 @@
   }
   
   .generate-ideas-btn {
-    background-color: #3949ab; /* Button color as per the image */
+    background-color: #474cd9; /* Button color as per the image */
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     font-size: 1em;
     cursor: pointer;
-    display: block;
-    width: 100%;
-    margin-top: 20px;
-    text-align: center;
+    display: block; /* Needed for margins to work */
+    width: 90%; /* Or any width you prefer */
+    margin: 20px auto; /* Top and bottom margins of 20px, left and right auto */
+    margin-right: 10px;
   }
   
+  
   .generate-ideas-btn:hover {
-    background-color: #303f9f; /* A darker blue on hover */
+    background-color: #253079; /* A darker blue on hover */
   }
+
+  .icons-container {
+    display: flex;
+    justify-content: flex-end; /* Align icon buttons to the right */
+    margin-top: -40px; /* Pushes the container to the bottom */
+  }
+
+  .icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #aaa; /* Example color */
+    font-size: 24px; /* Adjust the size as needed */
+
+  }
+  
+  .heart-icon {
+    color: #aaa; /* Default color for unliked heart */
+  }
+  
+  .heart-icon.liked {
+    color: #d839e6; /* Color for when the heart is liked */
+  }
+  
+  .heart-icon:hover {
+    color: #aaa; /* Default color for unliked heart */
+  } 
+
+  /* Ensure there's a bit of spacing if the buttons are side by side */
+  .icon-button:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  .heart-icon {
+    margin-right: -20px; /* No space on the left of the heart icon */
+  }  
+  
+  /* Change color on hover for visual feedback */
+  .icon-button:hover .icon,
+  .icon-button:focus .icon {
+    color: #9d4ee3; /* Example hover color */
+  }
+  
+  /* Reset the outline on focus for accessibility */
+  .icon-button:focus {
+    outline: none;
+  }
+  
   
   /* Responsive adjustments */
   @media (max-width: 768px) {
