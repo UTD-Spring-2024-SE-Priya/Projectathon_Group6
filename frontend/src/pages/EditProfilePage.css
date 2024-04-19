@@ -1,18 +1,15 @@
 /* ProfileForm.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 .edit-profile-container {
-    background: #FFFFFF;
-    padding: 0px; /* Padding inside the container */
-    width: 90%; /* Makes the container take up the full width of its parent */
-    height: 100%;
-
-  }
+  background: #ffffff;
+  padding: 0px; /* Padding inside the container */
+  width: 90%; /* Makes the container take up the full width of its parent */
+  height: 100%;
+}
 
 .profile-form h2 {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -26,9 +23,9 @@
   margin-bottom: 5px;
 }
 
-.input-group input[type='text'],
-.input-group input[type='email'],
-.input-group input[type='password'] {
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"] {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -56,7 +53,7 @@
 }
 
 .skill-level-buttons button.active {
-  background-color: #4E54E3; /* Active state background */
+  background-color: #4e54e3; /* Active state background */
   color: white;
 }
 
@@ -74,7 +71,7 @@
 }
 
 .interests-section button.active {
-  background-color: #4E54E3; /* Active state background */
+  background-color: #4e54e3; /* Active state background */
   color: white;
 }
 
@@ -89,9 +86,9 @@
 }
 
 .toggle-btn.active {
-  background-color: #4E54E3;
+  background-color: #4e54e3;
   color: white;
-  border-color: #4E54E3;
+  border-color: #4e54e3;
 }
 
 .button-group {
@@ -113,7 +110,7 @@
   display: block;
   width: 100%;
   padding: 15px;
-  background-color: #754EE3;
+  background-color: #754ee3;
   color: white;
   border: none;
   border-radius: 4px;
