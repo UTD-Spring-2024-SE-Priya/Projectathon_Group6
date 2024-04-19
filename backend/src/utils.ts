@@ -1,13 +1,6 @@
-import bcrypt from 'bcrypt';
 import { config } from "./config";
 
-const saltRounds = 10;
 const fetch = require('node-fetch');
-
-export async function hashPassword(password: string): Promise<string> {
-  // return bcrypt.hashSync(password, 10);  
-  return await bcrypt.hash(password, saltRounds);
-}
 
 export async function ideaGeneration(skill: string, langs: string[], interests: string[], maxtokens: number): Promise<string> {
   // randomly selects project topic and lang from selections in profile
