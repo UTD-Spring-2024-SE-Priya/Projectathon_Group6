@@ -46,4 +46,14 @@ router.get('/:userId', async (req, res) => {
     }
 });
 
+// delete user by id
+router.delete('/delete/:userId', async (req, res) => {
+    try {
+        await controller.deleteUser(req, res);
+    } catch (error) {
+        console.error(error);
+        res.status(400).send('Error in deleting user controller');
+    }
+});
+
 export default router;

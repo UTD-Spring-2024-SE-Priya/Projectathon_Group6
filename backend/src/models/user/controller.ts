@@ -91,4 +91,21 @@ export class Controller {
             name: user.name,
         });
     }
+
+    async deleteUser(req: Request, res: Response) {
+        const userId = req.params.userId;
+
+        if (!userId) {
+            res.status(400).send('Missing required fields');
+            return;
+        }
+
+        await prisma.user.delete({
+            where: {
+                id: parseInt(userId),
+            },
+        });
+
+        res.status(200).send('User deleted');
+    }
 }
