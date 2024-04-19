@@ -18,6 +18,9 @@ model User {
 
   ideas    ProjectIdea[]
   userInfo UserInfo?
+
+  feedback    Feedback[]
+  collections Collection[]
 }
 
 model UserInfo {
@@ -34,7 +37,31 @@ model ProjectIdea {
   id          Int    @id @default(autoincrement())
   title       String
   description String
+  technologies String  
   userId      Int
 
-  user User @relation(fields: [userId], references: [id])
+  user        User         @relation(fields: [userId], references: [id])
+  feedback    Feedback[]
+  collections Collection[]
+}
+
+model Feedback {
+  id       Int     @id @default(autoincrement())
+  userId   Int
+  ideaId   Int
+  feedback String
+  rating   Boolean
+
+  user User        @relation(fields: [userId], references: [id])
+  idea ProjectIdea @relation(fields: [ideaId], references: [id])
+}
+
+model Collection {
+  id           Int    @id @default(autoincrement())
+  userId       Int
+  title        String
+  description  String  
+
+  user  User          @relation(fields: [userId], references: [id])
+  ideas ProjectIdea[]
 }

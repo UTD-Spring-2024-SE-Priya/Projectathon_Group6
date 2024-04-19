@@ -8,7 +8,7 @@ export class Controller {
     async createCollection(req: Request, res: Response) {
         const { userId, collectionTitle, collectionDescription } = req.body as CreateCollectionInput;
 
-        if (!userId || !collectionTitle) {
+        if (!userId || !collectionTitle || !collectionDescription) {
             res.status(400).send('Missing required fields');
             return;
         }
