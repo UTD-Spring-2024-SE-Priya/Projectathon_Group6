@@ -23,8 +23,15 @@ export class Controller {
             return;
         }
 
+        const user = await prisma.user.findUnique({
+            where: {
+                id: parseInt(userId),
+            },
+        });
+
         res.status(200).json({
             userId: userInfo.userId,
+            username: user?.name ?? "Unknown",
             skills: userInfo.skills.split(',').map(skill => skill.trim()),
             programmingLanguages: userInfo.programming_languages.split(',').map(language => language.trim()),
             interests: userInfo.interests.split(',').map(interest => interest.trim()),

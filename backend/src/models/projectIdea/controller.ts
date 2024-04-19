@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 import { Request, Response } from 'express';
 import { prisma } from "../../db";
+import { CreateIdeaInput } from "./types";
 
 export class Controller {
     async getIdeasForUser(req: Request, res: Response) {
@@ -20,4 +21,8 @@ export class Controller {
 
         res.status(200).json(ideas);
     }
+
+    async createProjectIdea(req: Request, res: Response) {
+        const { userId, description,  }: CreateIdeaInput = req.body;
+
 }

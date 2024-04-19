@@ -76,17 +76,26 @@ const NewProjectIdeasPage = () => {
     navigate(`/feedback/${index}`);
   };
 
+  const handleGenerateIdea = () => {
+    // Logic for generating new project ideas
+    console.log("Generating new project ideas");
+  };
+
   return (
     <div>
       <div className="top-bar">
         <div className="bar-title">Projectathon</div>
         <nav className="nav-links">
           <Link to="/projectIdeas">Ideas</Link>
-          <Link to="/collections">Collections</Link>
+          <Link to="/collections">Collection</Link>
           <Link to="/profile">Profile</Link>
         </nav>
       </div>
-      <button className="generate-ideas-btn">
+      <button
+        className="generate-ideas-btn"
+        type="button"
+        onSubmit={handleGenerateIdea}
+      >
         Click here to generate new ideas!
       </button>
       <div className="new-project-ideas-page">

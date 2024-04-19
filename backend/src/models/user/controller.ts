@@ -3,6 +3,7 @@ import { PrismaClient } from "@prisma/client";
 import { SignUpInput } from "./types";
 import { hashPassword } from "./utils";
 import { prisma } from "../../db";
+import bcrypt from 'bcrypt';
 
 export class Controller {
     async signup(req: Request, res: Response) {
@@ -48,7 +49,10 @@ export class Controller {
             return;
         }
 
-        if (user.password !== await hashPassword(password)) {
+
+        const passwordIsValid = await bcrypt.compare(password, user.password);
+
+        if (!passwordIsValid) {
             res.status(401).send('Invalid password');
             return;
         }

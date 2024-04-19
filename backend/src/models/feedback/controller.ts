@@ -10,9 +10,9 @@ export class Controller {
     }
 
     async createFeedback(req: Request, res: Response) {
-        const { userId, ideaId, feedback } = req.body as CreateFeedbackInput;
+        const { userId, ideaId, feedback, rating } = req.body as CreateFeedbackInput;
 
-        if (!userId || !ideaId || !feedback) {
+        if (!userId || !ideaId || !feedback || !rating) {
             res.status(400).send('Missing required fields');
             return;
         }
@@ -22,6 +22,7 @@ export class Controller {
                 userId,
                 ideaId,
                 feedback,
+                rating,
             },
         });
 
