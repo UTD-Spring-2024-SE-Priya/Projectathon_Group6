@@ -1,0 +1,139 @@
+/* ProfilePage.css */
+
+body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .top-bar {
+    background-color: #99A7EF; /* Adjusted color based on your code */
+    color: white;
+    padding: 35px;
+    font-size: 1.8em;
+    font-weight: bold;
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Stacks items vertically */
+    justify-content: flex-end; /* Aligns items to the end of the container */
+  }
+  
+  .welcome {
+    font-weight: bold;
+    color: #ffffff; /* Keeps the title color white */
+    margin-top: auto; /* Pushes the welcome text to the bottom */
+    padding-left: 1%;
+    padding-top: 20px; /* Adds space above the welcome text if needed */
+  }
+  
+  #highlightLP {
+    color: rgb(24, 32, 85);
+  }
+
+  .profile-section {
+    background-color: white;
+    padding-left: 20px;
+    padding-top: 15px;
+    font-size: 1.2em;
+  }
+  
+  .profile-section h2 {
+    font-size: 1.0em;
+    color: #5F04BA; 
+    font-weight: bold;  
+    }
+  
+  .profile-section p, .profile-section a {
+    color: #909090;
+    line-height: .5; 
+    margin-left: 30px;
+  }
+
+  .divider {
+    border: 0;
+    height: 1.5px;
+    background-color: #ffffff; /* Adjust the color to match your design */
+    margin-top: 50px; /* Add some vertical spacing */
+  }
+  
+  .profile-section h3 {
+    color: #909090;
+    margin-left: 10px;
+    font-size: 1.0em;
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+  .button-img {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  #highlightBl{
+    color: #0D4DCA;
+  }
+  .button-img img {
+    margin-right: 10px;
+  }
+  
+  .profile-section a[role="button"] {
+    display: inline-block; /* To wrap the clickable area around the image */
+    border: none; /* Remove if you don't want a border */
+    cursor: pointer; /* Change the cursor to indicate it's clickable */
+    text-decoration: none; /* Remove the underline from links */
+    outline: none; /* Remove the blue outline that might appear on focus */
+}
+
+
+.image-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+
+  button {
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-top: 30px;
+    margin-left: 30px;
+    padding: 10px 35px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-profile-btn {
+    background-color: #a8a8a8; /* Green background for the edit profile button */
+    color: white;
+    /* ... other styling properties like padding, border, etc. ... */
+  }
+  
+  .logout-btn {
+    background-color: #a8a8a8; /* Red background for the logout button */
+    color: white;
+  }
+
+  .edit-profile-btn:hover {
+    background-color: #4E54E3; /* Green background for the edit profile button */
+    color: white;
+    /* ... other styling properties like padding, border, etc. ... */
+  }
+  
+  .logout-btn:hover {
+    background-color: #4E54E3; /* Red background for the logout button */
+    color: white;
+  }
+  
+  /* Adjustments for smaller screens */
+  @media (max-width: 600px) {
+    .top-bar, .profile-section, button {
+      padding: 15px;
+    }
+  
+    .button-img img {
+      width: 30px; /* Smaller image for smaller screens */
+    }
+  }
+  
