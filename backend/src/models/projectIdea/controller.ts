@@ -47,7 +47,11 @@ export class Controller {
 
         // last line
         // skip first three words
-        const technologies: string[] = split[split.length - 1].split(",").map((tech: string) => tech.trim());
+        let technologies: string[] = split[split.length - 1].split(",").map((tech: string) => tech.trim());
+
+        // clean up technologies array for unintended words
+        // ex: "Relevant" or "Technologies"
+        technologies = technologies.filter((tech) => !tech.toLowerCase().includes("relevant") && !tech.toLowerCase().includes("technologies"));
 
         const idea = split.slice(1, split.length - 1).join('\n');
 

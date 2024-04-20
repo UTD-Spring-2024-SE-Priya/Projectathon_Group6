@@ -155,6 +155,12 @@ const NewProjectIdeasPage = () => {
   }
 
   useEffect(() => {
+    if (!userId) {
+      alert("Please log in to view project ideas");
+      navigate("/login");
+      return;
+    }
+
     fetchOnInit();
   }, []);
 

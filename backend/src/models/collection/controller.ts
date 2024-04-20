@@ -143,7 +143,17 @@ export class Controller {
         });
 
         if (!collection) {
-            return [];
+            // create "liked" collection
+            await prisma.collection.create({
+                data: {
+                    userId,
+                    title: 'Liked',
+                    description: 'Liked ideas',
+                },
+            });
+
+            res.status(200).json([]);
+            return;
         }
 
         res.status(200).json(collection.ideas.map((idea) => {
