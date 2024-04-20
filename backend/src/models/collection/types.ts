@@ -16,6 +16,11 @@ export type DeleteCollectionInput = {
     collectionId: number;
 }
 
+export type AddIdeaToLikedCollectionInput = {
+    userId: number;
+    ideaId: number;
+}
+
 export type GetIdeasInCollectionInput = {
     collectionId: number;
 }

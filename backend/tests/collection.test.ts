@@ -81,12 +81,13 @@ describe("Collection", () => {
     })
 
     it('should add a project idea to the collection', async () => {
-        const inputBody: AddIdeaToCollectionInput = {
-            collectionId: testCollectionId!,
+        const inputBody = {
+            // collectionId: testCollectionId!,
+            userId: 1,
             ideaId: 1
         };
 
-        const response = await fetch(`http://localhost:${port}/collection/addProject`, {
+        const response = await fetch(`http://localhost:${port}/collection/addIdeaToLiked`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

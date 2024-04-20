@@ -15,6 +15,7 @@ describe("Feedback Tests", () => {
             userId: 1,
             ideaId: 1,
             feedback: "This is a test feedback",
+            rating: true
         };
 
         const response = await fetch(`http://localhost:${port}/feedback/create`, {
@@ -35,7 +36,7 @@ describe("Feedback Tests", () => {
     });
 
     it("should get all feedback", async () => {
-        const response = await fetch(`http://localhost:${port}/feedback`, {
+        const response = await fetch(`http://localhost:${port}/feedback/all`, {
             method: "GET",
         });
 

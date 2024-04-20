@@ -60,4 +60,24 @@ router.post('/deleteIdea', async (req, res) => {
     }
 });
 
+// add idea to "liked" collection
+router.post('/addIdeaToLiked', async (req, res) => {
+    try {
+        await controller.addIdeaToLiked(req, res);
+    } catch (error) {
+        console.error(error);
+        res.status(400).send('Error in add idea to liked collection controller');
+    }
+});
+
+// get all ideas in "liked" collection
+router.post('/likedIdeas', async (req, res) => {
+    try {
+        await controller.getLikedIdeas(req, res);
+    } catch (error) {
+        console.error(error);
+        res.status(400).send('Error in get liked ideas controller');
+    }
+});
+
 export default router;

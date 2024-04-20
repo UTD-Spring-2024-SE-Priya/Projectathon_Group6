@@ -14,6 +14,7 @@ export class Controller {
 
         if (!userId || !ideaId || !feedback || !rating) {
             res.status(400).send('Missing required fields');
+            console.log(`Received: ${JSON.stringify(req.body)}`)
             return;
         }
 

@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { Request, Response } from 'express';
-import { CreateCollectionInput, AddIdeaToCollectionInput, GetIdeasInCollectionInput } from "./types";
+import { CreateCollectionInput, AddIdeaToCollectionInput, GetIdeasInCollectionInput, AddIdeaToLikedCollectionInput } from "./types";
 
 import { prisma } from "../../db";
 
@@ -70,6 +70,88 @@ export class Controller {
         });
 
         res.status(200).send('Collection deleted successfully');
+    }
+
+    async addIdeaToLiked(req: Request, res: Response) {
+        const { userId, ideaId } = req.body as AddIdeaToLikedCollectionInput;
+
+        if (!userId || !ideaId) {
+            res.status(400).send('Missing required fields');
+            return;
+        }
+
+        // check if "liked" collection exists
+
+        let collection = await prisma.collection.findFirst({
+            where: {
+                userId,
+                title: 'Liked',
+            },
+        });
+
+        if (!collection) {
+            // create "liked" collection
+            collection = await prisma.collection.create({
+                data: {
+                    userId,
+                    title: 'Liked',
+                    description: 'Liked ideas',
+                    ideas: {
+                        connect: {
+                            id: ideaId,
+                        },
+                    },
+                },
+            });
+
+            console.info('Created "liked" collection');
+        }
+
+        // add idea to "liked" collection
+        await prisma.collection.update({
+            where: {
+                id: collection!.id
+            },
+            data: {
+                ideas: {
+                    connect: {
+                        id: ideaId,
+                    },
+                },
+            },
+        });
+
+        res.status(200).send('Idea added to liked successfully');
+    }
+
+    async getLikedIdeas(req: Request, res: Response) {
+        const { userId } = req.body;
+
+        if (!userId) {
+            res.status(400).send('Missing required fields');
+            return;
+        }
+
+        const collection = await prisma.collection.findFirst({
+            where: {
+                userId,
+                title: 'Liked',
+            },
+            include: {
+                ideas: true,
+            },
+        });
+
+        if (!collection) {
+            return [];
+        }
+
+        res.status(200).json(collection.ideas.map((idea) => {
+            return {
+                ...idea,
+                technologies: idea.technologies.split(","),
+            }
+        }));
     }
 
     async addIdeaToCollection(req: Request, res: Response) {

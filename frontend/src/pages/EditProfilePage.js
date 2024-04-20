@@ -73,6 +73,7 @@ const EditProfilePage = () => {
       interests: selectedInterests,
       otherInterests,
     };
+
     /*
         export type UpdateUserInfoInput = {
           userId: number;

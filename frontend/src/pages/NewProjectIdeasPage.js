@@ -1,61 +1,29 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "./NewProjectIdeasPage.css"; // make sure to create this CSS file
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faComment } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useHistory
+import { serverUrl } from "../constants";
+import { UserContext } from "../state/userContext";
 
 const NewProjectIdeasPage = () => {
-  // Define your project ideas in an array or fetch them from an API
   const navigate = useNavigate();
-  const projectIdeas = [
-    {
-      title: "Fashion Marketplace",
-      description:
-        "Build an online marketplace where independent fashion designers can showcase and sell their creations. Use HTML and CSS to design a visually appealing storefront for each designer. Implement backend functionality using Python for product listings, transactions, and user management. Use Java for features like customer reviews, wishlist management, and notifications.",
-      technologies: ["HTML", "CSS", "JavaScript", "Python"],
-      // ... other details
-    },
-    {
-      title: "Fashion Marketplace",
-      description:
-        "Build an online marketplace where independent fashion designers can showcase and sell their creations. Use HTML and CSS to design a visually appealing storefront for each designer. Implement backend functionality using Python for product listings, transactions, and user management. Use Java for features like customer reviews, wishlist management, and notifications.",
-      technologies: ["HTML", "CSS", "JavaScript", "Python"],
-      // ... other details
-    },
-    {
-      title: "Fashion Marketplace",
-      description:
-        "Build an online marketplace where independent fashion designers can showcase and sell their creations. Use HTML and CSS to design a visually appealing storefront for each designer. Implement backend functionality using Python for product listings, transactions, and user management. Use Java for features like customer reviews, wishlist management, and notifications.",
-      technologies: ["HTML", "CSS", "JavaScript", "Python"],
-      // ... other details
-    },
-    {
-      title: "Fashion Marketplace",
-      description:
-        "Build an online marketplace where independent fashion designers can showcase and sell their creations. Use HTML and CSS to design a visually appealing storefront for each designer. Implement backend functionality using Python for product listings, transactions, and user management. Use Java for features like customer reviews, wishlist management, and notifications.",
-      technologies: ["HTML", "CSS", "JavaScript", "Python"],
-      // ... other details
-    },
-    {
-      title: "Fashion Marketplace",
-      description:
-        "Build an online marketplace where independent fashion designers can showcase and sell their creations. Use HTML and CSS to design a visually appealing storefront for each designer. Implement backend functionality using Python for product listings, transactions, and user management. Use Java for features like customer reviews, wishlist management, and notifications.",
-      technologies: ["HTML", "CSS", "JavaScript", "Python"],
-      // ... other details
-    },
-    {
-      title: "Fashion Marketplace",
-      description:
-        "Build an online marketplace where independent fashion designers can showcase and sell their creations. Use HTML and CSS to design a visually appealing storefront for each designer. Implement backend functionality using Python for product listings, transactions, and user management. Use Java for features like customer reviews, wishlist management, and notifications.",
-      technologies: ["HTML", "CSS", "JavaScript", "Python"],
-      // ... other details
-    },
-    // ... more project ideas
-  ];
+
+  const [projectIdeas, setProjectIdeas] = React.useState([]); // Initialize state to store project ideas
 
   const [likes, setLikes] = useState({}); // Initialize state to keep track of likes for each project
+
+  const { userId } = useContext(UserContext);
+
+  const [skillLevel, setSkillLevel] = useState("");
+  const [interests, setInterests] = useState([]);
+  const [languages, setLanguages] = useState([]);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  const [likedProjectIdeas, setLikedProjectIdeas] = React.useState([]);
 
   const handleLike = (index) => {
     // handle like action, rn just have it show that the project was liked
@@ -67,19 +35,171 @@ const NewProjectIdeasPage = () => {
       [index]: !prevLikes[index], // Toggle like status
     }));
 
-    //add the project to collections
+    //add the project to liked
+    try {
+      const projectIdea = projectIdeas[index];
+
+      const response = fetch(`${serverUrl}/collection/addIdeaToLiked`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId,
+          ideaId: projectIdea.id,
+        }),
+      });
+
+      if (response.ok) {
+        console.log("Added project to liked collection");
+      } else {
+        console.error("Failed to add project to liked collection");
+        // alert("Failed to add project to liked collection");
+      }
+    } catch (error) {
+      console.error("Failed to add project to liked collection");
+    }
   };
 
   const handleComment = (index) => {
     // Logic for handling a comment action on the project at the given index
     console.log(`Comment on project ${index}`);
-    navigate(`/feedback/${index}`);
+    navigate(`/feedback/${index}`, {
+      state: { ideaId: projectIdeas[index].id },
+    });
   };
 
-  const handleGenerateIdea = () => {
+  async function fetchLikedProjects(projectIdeas) {
+    const response = await fetch(`${serverUrl}/collection/likedIdeas`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userId }),
+    });
+
+    const data = await response.json();
+
+    console.log(`fetched liked projects: ${JSON.stringify(data)}`);
+
+    setLikedProjectIdeas(data);
+
+    const likedProjectIds = data.map((idea) => idea.id);
+
+    console.log(`Liked project ids: ${likedProjectIds}`);
+
+    console.log(`project ids: ${projectIdeas.map((idea) => idea.id)}`);
+
+    const likes = projectIdeas.map((idea) => likedProjectIds.includes(idea.id));
+
+    console.log(`Likes: ${likes}`);
+
+    setLikes(likes);
+  }
+
+  async function fetchProjectIdeas() {
+    const response = await fetch(`${serverUrl}/projectIdea/${userId}/all`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+
+      console.log(`Fetched project ideas: ${JSON.stringify(data)}`);
+      setProjectIdeas(data);
+
+      await fetchLikedProjects(data);
+    } else {
+      alert("Failed to fetch project ideas");
+    }
+  }
+
+  async function fetchUserInfo() {
+    // get userinfo from response
+    const userInfoResponse = await fetch(`${serverUrl}/userInfo/${userId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    // If the response is successful, navigate to the profile page
+    if (userInfoResponse.ok) {
+      const userInfo = await userInfoResponse.json();
+
+      console.log(`Found user info: ${JSON.stringify(userInfo)}`);
+
+      const state = {
+        username: userInfo.username,
+        skillLevel: userInfo.skills[0],
+        languages: userInfo.programmingLanguages,
+        interests: userInfo.interests,
+      };
+
+      setInterests(state.interests);
+      setLanguages(state.languages);
+      setSkillLevel(state.skillLevel);
+    } else {
+      // Navigate to the editProfile page
+      alert("Unable to retrieve user info");
+    }
+  }
+
+  async function fetchOnInit() {
+    await fetchUserInfo();
+    await fetchProjectIdeas();
+    setIsLoading(false);
+  }
+
+  useEffect(() => {
+    fetchOnInit();
+  }, []);
+
+  const handleGenerateIdea = async () => {
     // Logic for generating new project ideas
     console.log("Generating new project ideas");
+
+    const inputBody = {
+      userId,
+      programmingLanguages: languages,
+      skills: [skillLevel],
+      interests,
+    };
+
+    console.log(inputBody);
+
+    try {
+      const response = await fetch(`${serverUrl}/projectIdea/create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(inputBody),
+      });
+
+      console.log(response);
+
+      if (response.ok) {
+        const data = await response.json();
+
+        console.log(`Generated new project idea: ${JSON.stringify(data)}`);
+
+        setProjectIdeas([...projectIdeas, data]);
+      } else {
+        alert("Failed to generate new project idea");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Failed to generate new project idea");
+    }
   };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
@@ -91,11 +211,7 @@ const NewProjectIdeasPage = () => {
           <Link to="/profile">Profile</Link>
         </nav>
       </div>
-      <button
-        className="generate-ideas-btn"
-        type="button"
-        onSubmit={handleGenerateIdea}
-      >
+      <button className="generate-ideas-btn" onClick={handleGenerateIdea}>
         Click here to generate new ideas!
       </button>
       <div className="new-project-ideas-page">
