@@ -5,8 +5,6 @@ import { prisma } from "../../db";
 import { CreateIdeaInput } from "./types";
 import { ideaGeneration } from "../../utils";
 
-import { ideaGeneration } from "../../utils"
-
 export class Controller {
     async getIdeasForUser(req: Request, res: Response) {
         const { userId } = req.params;
