@@ -17,4 +17,15 @@ router.get('/:userId/all', async (req, res) => {
     }
 });
 
+// creates project idea
+
+router.post('/createidea', async (req, res) => {
+    try {
+        await controller.createProjectIdea(req, res);
+    } catch (error) {
+        console.error(error);
+        res.status(400).send('Error in create project idea controller');
+    }
+});
+
 export default router;
