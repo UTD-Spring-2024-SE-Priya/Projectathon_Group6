@@ -18,7 +18,7 @@ let testUser: User = {
 
 let testCollectionId: number | null;
 
-const port = 5000;
+const port = 5002;
 
 beforeAll(() => {
     // Start the server

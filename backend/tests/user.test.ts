@@ -22,17 +22,19 @@ function getTestUser() {
   return testUser;
 }
 
+const port = 5002
+
 beforeAll(() => {
   // Start the server
-  app.listen(5000);
-  console.info("Server started on port 3000");
+  app.listen(port);
+  console.info("Server started on port " + port);
 })
 
 describe('POST /signup', () => {
   it('should create a new user and return it', async () => {
     const testUser = getTestUser();
 
-    const response = await fetch("http://localhost:5000/user/signup", {
+    const response = await fetch(`http://localhost:${port}/user/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -60,7 +62,7 @@ describe('POST /signup', () => {
       return;
     }
 
-    const response = await fetch(`http://localhost:5000/user/delete/${testUserId}`, {
+    const response = await fetch(`http://localhost:${port}/user/delete/${testUserId}`, {
       method: "DELETE",
     });
 

@@ -57,7 +57,6 @@ const CollectionsPage = () => {
     setLikedProjectIdeas(data);
   }
 
-
   useEffect(() => {
     if (!userId) {
       alert("Please log in to view your liked projects");
@@ -66,7 +65,6 @@ const CollectionsPage = () => {
 
     console.log(`Fetching liked projects for user ${userId}`);
 
-    
     fetchLikedProjects();
   }, []);
 
@@ -76,7 +74,7 @@ const CollectionsPage = () => {
         <div className="bar-title">My Liked Projects</div>
         <nav className="nav-links">
           <Link to="/projectIdeas">Ideas</Link>
-          <Link to="/collections">Collections</Link>
+          <Link to="/collections">Collection</Link>
           <Link to="/profile">Profile</Link>
         </nav>
       </div>

@@ -2,7 +2,7 @@ import { beforeAll, describe, expect, it } from "vitest";
 import { app } from "../src/app";
 import { CreateFeedbackInput } from "../src/models/feedback/types";
 
-const port = 5000;
+const port = 5002;
 
 beforeAll(() => {
     app.listen(port);
