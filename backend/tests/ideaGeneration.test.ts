@@ -12,4 +12,6 @@ describe('ideaGeneration()', () => {
             expect(value).toBe('');
         });
     });
+
+
 });

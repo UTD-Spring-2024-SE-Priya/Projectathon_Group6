@@ -8,6 +8,7 @@ import ProfilePage from "./pages/ProfilePage";
 import NewProjectIdeasPage from "./pages/NewProjectIdeasPage";
 import FeedbackPage from "./pages/FeedbackPage";
 import CollectionsPage from "./pages/CollectionsPage";
+import AdminFeedbackPage from "./pages/AdminFeedbackPage";
 import { UserContext } from "./state/userContext";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
               <Route path="/projectIdeas" element={<NewProjectIdeasPage />} />
               <Route path="/feedback/:projectId" element={<FeedbackPage />} />
               <Route path="/collections" element={<CollectionsPage />} />
+              <Route path="/admin/feedback" element={<AdminFeedbackPage />} />
               {/* Other routes */}
             </Routes>
           </UserContext.Provider>
