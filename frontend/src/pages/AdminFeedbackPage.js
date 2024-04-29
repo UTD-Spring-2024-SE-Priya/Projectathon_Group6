@@ -112,10 +112,15 @@ export default function AdminFeedbackPage() {
         const user = users.find((user) => user.id === feedback.userId);
         const idea = ideas.find((idea) => idea.id === feedback.ideaId);
 
-        let projectTitle = idea?.title ? idea.title : feedback.ideaId;
+        let projectTitle = null;
 
-        // Remove "Project Title: "
-        projectTitle = projectTitle.replace("Project Title: ", "");
+        if (idea) {
+          projectTitle = idea.title;
+          // Remove "Project Title: "
+          projectTitle = projectTitle.replace("Project Title: ", "");
+        } else {
+          projectTitle = "Unknown (id: " + feedback.ideaId + ")";
+        }
 
         let userEmail = user?.email ? user.email : feedback.userId;
 
